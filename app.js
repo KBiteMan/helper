@@ -8,6 +8,8 @@ const path = require('path');
 const userRouter = require('./router/user');
 const homeRouter = require('./router/home');
 const baseRouter = require('./router/base');
+const publishRouter = require('./router/publish');
+
 const jwt = require('./utils/token');
 
 const app = new koa();
@@ -38,6 +40,7 @@ app.use(fileSource(path.join(__dirname,staticPath)));
 app.use(userRouter.routes());
 app.use(homeRouter.routes());
 app.use(baseRouter.routes());
+app.use(publishRouter.routes());
 
 app.listen(3000);
 

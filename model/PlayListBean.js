@@ -1,6 +1,4 @@
-/**
- * banner图
- */
+
 const mongoos = require('../utils/db');
 const Schema = mongoos.Schema;
 

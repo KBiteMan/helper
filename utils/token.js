@@ -21,7 +21,7 @@ async function check(ctx, next) {
         let payload = await jwt.verify(token, serect);
         let { time, timeout } = payload;
         let date = new Date().getTime();
-        let count = await login.count({'token':token});
+        let count = await login.countDocuments({'token':token});
         console.log(count);
         if (count != 1) {
             ctx.body = {

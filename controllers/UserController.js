@@ -8,6 +8,11 @@ const serect = 'zhangyu521521'
 
 class UserController {
 
+    /**
+     * 登录
+     * @param {*} ctx 
+     * @param {*} next 
+     */
     async login(ctx, next) {
         let params = ctx.request.body;
         let login = await Login.find({ 'username': params.username }).select('-__v');
@@ -29,7 +34,7 @@ class UserController {
                 let payload = {
                     userNumber:params.username,
                     time:new Date().getTime(),
-                    timeout:1000*60*60
+                    timeout:1000*60*60*24*30
                 };
                 let token = jwt.sign(payload,serect);
                 console.log('token='+token);
@@ -49,6 +54,11 @@ class UserController {
 
     }
 
+    /**
+     * 注册
+     * @param {*} ctx 
+     * @param {*} next 
+     */
     async registe(ctx, next) {
         let params = ctx.request.body;
         console.log(params);
@@ -83,6 +93,11 @@ class UserController {
         ctx.body = baseBean;
     }
 
+    /**
+     * 更新用户信息
+     * @param {*} ctx 
+     * @param {*} next 
+     */
     async updateUser(ctx,next){
         let params = ctx.request.body;
         console.log(params);
