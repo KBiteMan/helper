@@ -62,7 +62,7 @@ class UserController {
     async registe(ctx, next) {
         let params = ctx.request.body;
         console.log(params);
-        let count = await User.count({ 'username': params.username });
+        let count = await User.countDocuments({ 'username': params.username });
 
         if (count.err) {
             baseBean.code = 500;

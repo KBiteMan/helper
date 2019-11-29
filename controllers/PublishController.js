@@ -10,7 +10,7 @@ class PublishController {
     async movie(ctx, next) {
         let params = ctx.request.body;
         console.log(params);
-        
+
         let item = await new Selection(params).save();
         if (item.err) {
             ctx.body = {
