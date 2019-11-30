@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const DB_URL = 'mongodb://10.144.1.1:27017/helper';
+const env = require('../config/setting')
+const DB_URL = env.db_ip;
 
 mongoose.connect(DB_URL, { 
     useNewUrlParser: true, 

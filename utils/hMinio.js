@@ -1,7 +1,8 @@
 const Minio = require('minio')
+const env = require('../config/setting')
 
 var minioClient = new Minio.Client({
-    endPoint:'10.144.1.1',
+    endPoint:env.minio_ip,
     port:9000,
     useSSL:false,
     accessKey:'bite_man',
